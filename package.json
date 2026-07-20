@@ -2,11 +2,26 @@
   "name": "maroon-db",
   "version": "1.0.0",
   "description": "Repo for DB for Maroon Concept",
-  "main": "index.js",
+  "main": "database/index.ts",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "database:initialize": "node --loader ts-node/esm database/index.ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "dotenv": "^17.4.2",
+    "pg": "^8.22.0",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "@types/pg": "^8.20.0",
+    "@types/sequelize": "^6.12.0",
+    "ts-loader": "^9.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "5.9"
+  }
 }
