@@ -1,13 +1,15 @@
+import { CreationAttributes } from "sequelize";
+
 import { generatePosts } from "../generators/index.js"
 
 import { AppModelTypes } from "../../types.js";
-import { PackTypes } from "../../Models/Pack/types.js";
+import { PackTypes, PostTypes } from "../../Models/types.js";
 
-const seedPosts = async ({ Post }: AppModelTypes, packs: PackTypes[]): Promise<void> => {
+const seedPosts = async ({ Post }: AppModelTypes, packs: PackTypes[]): Promise<PostTypes[]> => {
   try {
-    const posts = generatePosts(packs);
+    const posts: CreationAttributes<PostTypes>[] = generatePosts(packs);
 
-    await Post.bulkCreate(posts);
+    return await Post.bulkCreate(posts);
 
   } catch(error) {
     console.log("Error creating posts", error);

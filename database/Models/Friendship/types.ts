@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   InferAttributes,
   InferCreationAttributes,
   Model
@@ -10,7 +11,7 @@ type StatusTypes =
   | "blocked"
 
 interface FriendshipAttributeTypes {
-  id: string;
+  id: CreationOptional<string>;
   requesterId: string;
   receiverId: string;
   status: StatusTypes;

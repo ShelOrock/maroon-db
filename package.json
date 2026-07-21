@@ -5,7 +5,8 @@
   "main": "database/index.ts",
   "type": "module",
   "scripts": {
-    "database:initialize": "node --loader ts-node/esm database/index.ts"
+    "database:initialize": "node --loader ts-node/esm database/index.ts",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "@types/sequelize": "^6.12.0",
     "ts-loader": "^9.6.2",
     "ts-node": "^10.9.2",
-    "typescript": "5.9"
+    "typescript": "5.9",
+    "vitest": "^1.6.0"
   }
 }

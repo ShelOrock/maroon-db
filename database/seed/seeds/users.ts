@@ -1,11 +1,13 @@
+import { CreationAttributes } from "sequelize";
+
 import { generateUsers } from "../generators/index.js";
 
 import { AppModelTypes } from "../../types.js";
-import { UserTypes } from "../../Models/User/types.js";
+import { UserTypes } from "../../Models/types.js";
 
 const seedUsers = async ({ User }: AppModelTypes): Promise<UserTypes[]> => {
   try {
-    const users = generateUsers(100);
+    const users: CreationAttributes<UserTypes>[] = generateUsers(100);
 
     return await User.bulkCreate(users);
 

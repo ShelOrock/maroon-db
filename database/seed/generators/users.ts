@@ -1,9 +1,10 @@
+import { CreationAttributes } from "sequelize";
 import { faker } from "@faker-js/faker";
 
 import { RoleTypes, UserTypes } from "../../Models/User/types.js";
 
-const generateUsers = (count: number): Partial<UserTypes>[] => {
-  const users: Partial<UserTypes>[] = Array.from({ length: count }, () => {
+const generateUsers = (count: number): CreationAttributes<UserTypes>[] => {
+  const users: CreationAttributes<UserTypes>[] = Array.from({ length: count }, () => {
     const singleUser = {
       username: faker.internet.username(),
       email: faker.internet.email(),

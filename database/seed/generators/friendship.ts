@@ -1,9 +1,10 @@
+import { CreationAttributes } from "sequelize";
 import { faker } from "@faker-js/faker";
 
 import { UserTypes } from "../../Models/User/types.js";
 import { FriendshipTypes } from "../../Models/Friendship/types.js";
 
-const generateFriendships = (users: UserTypes[]): Partial<FriendshipTypes>[] => {
+const generateFriendships = (users: UserTypes[]): CreationAttributes<FriendshipTypes>[] => {
 
   enum FriendshipStatus {
     PENDING = "pending",
@@ -11,7 +12,7 @@ const generateFriendships = (users: UserTypes[]): Partial<FriendshipTypes>[] => 
     BLOCKED = "blocked"
   };
 
-  const friendships: Partial<FriendshipTypes>[] = []
+  const friendships: CreationAttributes<FriendshipTypes>[] = []
   const pairs = new Set<string>();
 
   users.forEach(requester => {

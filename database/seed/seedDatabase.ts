@@ -1,5 +1,13 @@
 import chalk from "chalk";
-import { seedFriendships, seedPacks, seedPosts, seedUsers } from "./seeds/index.js";
+
+import {
+  seedFriendships,
+  seedPacks,
+  seedPosts,
+  seedUsers,
+  seedComments
+} from "./seeds/index.js";
+
 import { AppModelTypes } from "../types.js";
 
 const seedDatabase = async (models: AppModelTypes) => {
@@ -14,7 +22,10 @@ const seedDatabase = async (models: AppModelTypes) => {
     const packs = await seedPacks(models, users);
 
     console.log(chalk.yellow("Seeding posts..."));
-    await seedPosts(models, packs);
+    const posts = await seedPosts(models, packs);
+
+    console.log(chalk.yellow("Seeding comments..."));
+    await seedComments(models, posts);
 
   } catch(error) {
     console.log(chalk.redBright("Error creating a new seed", error));

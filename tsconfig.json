@@ -5,6 +5,7 @@
   },
   "compilerOptions": {
     "outDir": "dist",
+    "rootDirs": [ "./database", "./test" ],
     "sourceMap": true,
     "module": "nodenext",
     "moduleResolution": "nodenext",

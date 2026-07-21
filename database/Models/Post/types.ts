@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   InferAttributes,
   InferCreationAttributes,
   Model 
@@ -9,11 +10,11 @@ type StatusTypes =
  | "published"
 
 interface PostAttributeTypes {
-  id: string;
+  id: CreationOptional<string>;
   ownerId: string;
-  packId: string;
+  packId: string | null;
   image: string;
-  caption?: string;
+  caption: string;
   likes: number;
   status: StatusTypes;
 };

@@ -1,23 +1,24 @@
+import { CreationAttributes } from "sequelize";
 import { faker } from "@faker-js/faker";
 
 import { PostTypes } from "../../Models/Post/types.js";
 import { PackTypes } from "../../Models/Pack/types.js";
 
-const generatePosts = (packs: PackTypes[]): Partial<PostTypes>[] => {
+const generatePosts = (packs: PackTypes[]): CreationAttributes<PostTypes>[] => {
 
   enum PostStatus {
     DRAFTED = "drafted",
     PUBLISHED = "published",
   };
 
-  const posts: Partial<PostTypes>[] = [];
+  const posts: CreationAttributes<PostTypes>[] = [];
 
   packs.forEach(pack => {
     const postCount = pack.status === "drafted"
       ? 5
       : faker.number.int({ min: 1, max: 5 });
 
-    Array.from({ length: postCount }).forEach(() => {
+    for(let i = 0; i < postCount; i++) {
       const likes = faker.helpers.weightedArrayElement([
         { value: 3, weight: 1 },
         { value: 5, weight: 1 },
@@ -54,7 +55,7 @@ const generatePosts = (packs: PackTypes[]): Partial<PostTypes>[] => {
         likes: status === PostStatus.DRAFTED ? 0 : likes,
         status
       });
-    });
+    };
   });
 
   return posts;

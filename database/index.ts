@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import connection from "./connection.js"
 import verifyAndCreateDatabase from "./createDatabase.js";
-import createModels from "./Models/index.js";
+import { createModels } from "./Models/index.js";
 import seedDatabase from "./seed/seedDatabase.js";
 
 const initializeDatabase = async () => {

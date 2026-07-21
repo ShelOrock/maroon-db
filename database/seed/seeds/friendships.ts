@@ -1,11 +1,13 @@
+import { CreationAttributes } from "sequelize";
+
 import { generateFriendships } from "../generators/index.js"
 
 import { AppModelTypes } from "../../types.js";
-import { UserTypes } from "../../Models/User/types.js"
+import { UserTypes, FriendshipTypes } from "../../Models/types.js"
 
 const seedFriendships = async ({ Friendship }: AppModelTypes, users: UserTypes[]): Promise<void> => {
   try {
-    const friendships = generateFriendships(users);
+    const friendships: CreationAttributes<FriendshipTypes>[] = generateFriendships(users);
 
     await Friendship.bulkCreate(friendships);
 

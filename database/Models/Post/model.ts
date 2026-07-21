@@ -18,6 +18,7 @@ const definePostModel: DefineModelType<PostTypes> = connection => {
 
     packId: {
       type: DataTypes.UUID,
+      allowNull: true
     }, 
   
     image: {
@@ -26,6 +27,7 @@ const definePostModel: DefineModelType<PostTypes> = connection => {
   
     caption: {
       type: DataTypes.TEXT,
+      defaultValue: ""
     },
   
     likes: {

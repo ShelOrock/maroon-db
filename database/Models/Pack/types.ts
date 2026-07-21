@@ -1,4 +1,5 @@
 import {
+  CreationOptional,
   InferAttributes,
   InferCreationAttributes,
   Model
@@ -10,7 +11,7 @@ type StatusTypes =
   | "hidden"
 
 interface PackAttributeTypes {
-  id: string;
+  id: CreationOptional<string>;
   ownerId: string;
   views: number;
   status: StatusTypes;

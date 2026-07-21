@@ -11,10 +11,10 @@ type RoleTypes =
   | "admin";
 
 interface UserAttributeTypes {
-  id: string;
-  username: CreationOptional<string>;
-  email: CreationOptional<string>;
-  password: CreationOptional<string>;
+  id: CreationOptional<string>;
+  username: string;
+  email: string;
+  password: string;
   role: RoleTypes;
 }
 

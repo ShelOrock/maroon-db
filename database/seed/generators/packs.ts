@@ -1,9 +1,10 @@
+import { CreationAttributes } from "sequelize";
 import { faker } from "@faker-js/faker";
 
 import { PackTypes } from "../../Models/Pack/types.js";
 import { UserTypes } from "../../Models/User/types.js";
 
-const generatePacks = (users: UserTypes[]): Partial<PackTypes>[] => {
+const generatePacks = (users: UserTypes[]): CreationAttributes<PackTypes>[] => {
 
   enum PackStatus {
     DRAFTED = "drafted",
@@ -11,7 +12,7 @@ const generatePacks = (users: UserTypes[]): Partial<PackTypes>[] => {
     HIDDEN = "hidden"
   };
 
-  const packs: Partial<PackTypes>[] = [];
+  const packs: CreationAttributes<PackTypes>[] = [];
 
   users.forEach(user => {
     const packArray = faker.helpers.weightedArrayElement([

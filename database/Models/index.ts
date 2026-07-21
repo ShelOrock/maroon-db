@@ -5,6 +5,7 @@ import * as FriendshipModel from "./Friendship/index.js";
 import * as PostModel from "./Post/index.js";
 import * as PackModel from "./Pack/index.js";
 import * as CommentModel from "./Comment/index.js";
+
 import { AppModelTypes } from "../types.js";
 
 const createModels = (connection: Sequelize): AppModelTypes => {
@@ -37,4 +38,11 @@ const createModels = (connection: Sequelize): AppModelTypes => {
   return Models;
 };
 
-export default createModels;
+export {
+  createModels,
+  UserModel,
+  FriendshipModel,
+  PostModel,
+  PackModel,
+  CommentModel
+};

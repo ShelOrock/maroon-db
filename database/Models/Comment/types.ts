@@ -1,11 +1,12 @@
 import {
+  CreationOptional,
   InferAttributes,
   InferCreationAttributes,
   Model
 } from "sequelize";
 
 interface CommentAttributeTypes {
-  id: string;
+  id: CreationOptional<string>;
   comment: string;
   postId: string;
 };
