@@ -13,7 +13,7 @@ describe("definePostModel", () => {
         const attributes = model.getAttributes();
 
         expect(attributes.ownerId.allowNull).toBe(false);
-        expect(attributes.packId.allowNull).toBeUndefined();
+        expect(attributes.packId.allowNull).toBe(true);
         expect(attributes.image.type).toBeDefined();
         expect(attributes.caption.type).toBeDefined();
         expect(attributes.likes.type).toBeDefined();
